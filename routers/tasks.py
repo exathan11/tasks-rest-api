@@ -12,9 +12,7 @@ def get_task_service():
     return task_service
 
 
-router = APIRouter(
-    prefix="/tasks", tags=["tasks"], dependencies=[Depends(get_task_service)]
-)
+router = APIRouter(tags=["tasks"], dependencies=[Depends(get_task_service)])
 
 
 @router.get("/tasks", response_model=list[TaskResponse])
